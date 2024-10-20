@@ -19,8 +19,6 @@ function validAnagram(str1, str2) {
     }
   }
 
-  console.log(frq1, frq2);
-
   for (char in frq1) {
     if (frq1[char] !== frq2[char]) {
       return false;
@@ -29,5 +27,4 @@ function validAnagram(str1, str2) {
   return true;
 }
 
-//frq1={h:1 , e:1 , l: 2,o:1}  frq2={h:1 , e:1 , l: 2,o:1}
-console.log(validAnagram("hello", "hello"));
+console.log(validAnagram("", ""));
