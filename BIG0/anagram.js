@@ -1,30 +1,21 @@
 function validAnagram(str1, str2) {
   // add whatever parameters you deem necessary - good luck!
+  if (str1.length !== str2.length) return false;
+
   let frq1 = {};
-  let frq2 = {};
 
-  for (let str of str1) {
-    if (frq1[str]) {
-      frq1[str] += 1;
-    } else {
-      frq1[str] = 1;
-    }
+  for (let char of str1) {
+    frq1[char] = (frq1[char] || 0) + 1;
   }
 
-  for (let str of str2) {
-    if (frq2[str]) {
-      frq2[str] += 1;
-    } else {
-      frq2[str] = 1;
-    }
-  }
-
-  for (char in frq1) {
-    if (frq1[char] !== frq2[char]) {
+  for (let char of str2) {
+    if (!frq1[char]) {
       return false;
+    } else {
+      frq1[char] -= 1;
     }
   }
+
   return true;
 }
-
-console.log(validAnagram("", ""));
+console.log(validAnagram("icce", "ciie"));
